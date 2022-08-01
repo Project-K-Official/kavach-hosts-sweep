@@ -1,12 +1,13 @@
-# Maintainer: Team Kavach <https://github.com/Project-K-Official/>
-### NOT COMPLETED FULLY ###
+ # Maintainer: Team Kavach <https://github.com/Project-K-Official/>
+
 pkgname=kavach-hosts-sweep
-pkgdesc='IP hosts Updater & Sweep Script'
+pkgdesc='IP hosts sweep for Kavach OS'
 pkgver=1
 pkgrel=1
 arch=('any')
 url="https://github.com/Project-k-Official/kavach-hosts-sweep"
 license=('MIT')
+makedepends=('git')
 source=("git+$url.git")
 sha256sums=('SKIP')
 
@@ -16,13 +17,13 @@ package() {
     install -d ${pkgdir}/usr/bin
     install -d ${pkgdir}/etc/skel/.config/autostart
 
-    cp -r ${srcdir}/kavach-hosts-sweep/src/ "${pkgdir}/usr/share/kavach-hosts-sweep/src/"
-
-    cp -r ${srcdir}/kavach-welcome/src/addentries.sh "${pkgdir}/usr/bin/kavach-hosts-sweep"
+    cp -r ${srcdir}/kavach-hosts-sweep/src/addentries.sh "${pkgdir}/usr/bin/kavach-hosts-sweep"
     chmod +x "${pkgdir}/usr/bin/kavach-hosts-sweep"
 
-    cp -r ${srcdir}/kavach-hosts-sweep/src/addentries.sh "${pkgdir}/etc/skel/.config/autostart/addentries.sh"
-    chmod +x "${pkgdir}/etc/skel/.config/autostart/kavach-welcome.desktop"
+    cp -r ${srcdir}/kavach-hosts-sweep/src/gethosts.sh "${pkgdir}/usr/bin/kavach-hosts-sweep"
+    chmod +x "${pkgdir}/usr/bin/kavach-hosts-sweep"
 
-    cp -r ${srcdir}/kavach-welcome/src/kavach-welcome.desktop "${pkgdir}/usr/share/applications/kavach-welcome.desktop"
+    cp -r ${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-addentries.desktop "${pkgdir}/usr/share/applications/kavach-hosts-sweep-addentries.desktop"
+
+    cp -r ${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-gethosts.desktop "${pkgdir}/usr/share/applications/kavach-hosts-sweep-gethosts.desktop"
 }

@@ -1,0 +1,8 @@
+ [Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Kavach Add Entries Script
+Exec=/usr/bin/addentries.sh
+Icon=/usr/share/kavach-welcome/img/kavach-welcome.png
+Terminal=false
+StartupNotify=true
