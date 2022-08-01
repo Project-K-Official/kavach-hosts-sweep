@@ -5,10 +5,8 @@ pkgdesc='IP hosts Updater & Sweep Script'
 pkgver=1
 pkgrel=1
 arch=('any')
-url="https://github.com/Project-k-Official/kavach-welcome"
-license=('GPL 3.0')
-makedepends=('git')
-depends=('python3' 'python-pyqt5')
+url="https://github.com/Project-k-Official/kavach-hosts-sweep"
+license=('MIT')
 source=("git+$url.git")
 sha256sums=('SKIP')
 
@@ -18,12 +16,12 @@ package() {
     install -d ${pkgdir}/usr/bin
     install -d ${pkgdir}/etc/skel/.config/autostart
 
-    cp -r ${srcdir}/kavach-hosts-sweep/src/ "${pkgdir}/usr/share/kavach-hosts/src/"
+    cp -r ${srcdir}/kavach-hosts-sweep/src/ "${pkgdir}/usr/share/kavach-hosts-sweep/src/"
 
-    cp -r ${srcdir}/kavach-welcome/src/kavach-welcome.py "${pkgdir}/usr/bin/kavach-welcome"
-    chmod +x "${pkgdir}/usr/bin/kavach-welcome"
+    cp -r ${srcdir}/kavach-welcome/src/addentries.sh "${pkgdir}/usr/bin/kavach-hosts-sweep"
+    chmod +x "${pkgdir}/usr/bin/kavach-hosts-sweep"
 
-    cp -r ${srcdir}/kavach-welcome/src/kavach-welcome.desktop "${pkgdir}/etc/skel/.config/autostart/kavach-welcome.desktop"
+    cp -r ${srcdir}/kavach-hosts-sweep/src/addentries.sh "${pkgdir}/etc/skel/.config/autostart/addentries.sh"
     chmod +x "${pkgdir}/etc/skel/.config/autostart/kavach-welcome.desktop"
 
     cp -r ${srcdir}/kavach-welcome/src/kavach-welcome.desktop "${pkgdir}/usr/share/applications/kavach-welcome.desktop"
