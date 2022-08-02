@@ -26,4 +26,7 @@ package() {
     cp -r ${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-addentries.desktop "${pkgdir}/usr/share/applications/kavach-hosts-sweep-addentries.desktop"
 
     cp -r ${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-gethosts.desktop "${pkgdir}/usr/share/applications/kavach-hosts-sweep-gethosts.desktop"
+
+    chmod +x /etc/skel/.config/autostart/addentries.sh
+    chmod +x /etc/skel/.config/autostart/gethosts.sh
 }
