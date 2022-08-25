@@ -16,17 +16,19 @@ package() {
     install -d ${pkgdir}/usr/share/applications
     install -d ${pkgdir}/usr/bin
     install -d ${pkgdir}/etc/skel/.config/autostart
+    
+    cp -r "${srcdir}/kavach-hosts-sweep/src/addentries.sh" "${pkgdir}/usr/bin/addentries.sh"
+    chmod +x "${pkgdir}/usr/bin/addentries.sh"
 
-    cp -r ${srcdir}/kavach-hosts-sweep/src/addentries.sh "${pkgdir}/usr/bin/kavach-hosts-sweep"
-    chmod +x "${pkgdir}/usr/bin/kavach-hosts-sweep"
+    cp -r "${srcdir}/kavach-hosts-sweep/src/gethosts.sh" "${pkgdir}/usr/bin/gethosts.sh"
+    chmod +x "${pkgdir}/usr/bin/gethosts.sh"
 
-    cp -r ${srcdir}/kavach-hosts-sweep/src/gethosts.sh "${pkgdir}/usr/bin/kavach-hosts-sweep"
-    chmod +x "${pkgdir}/usr/bin/kavach-hosts-sweep"
+    cp -r "${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-addentries.desktop" "${pkgdir}/etc/skel/.config/autostart/kavach-hosts-sweep-addentries.desktop"
+    chmod +x "${pkgdir}/etc/skel/.config/autostart/kavach-hosts-sweep-addentries.desktop"
 
-    cp -r ${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-addentries.desktop "${pkgdir}/usr/share/applications/kavach-hosts-sweep-addentries.desktop"
+    cp -r "${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-gethosts.desktop" "${pkgdir}/etc/skel/.config/autostart/kavach-hosts-sweep-gethosts.desktop"
+    chmod +x "${pkgdir}/etc/skel/.config/autostart/kavach-hosts-sweep-gethosts.desktop"
 
-    cp -r ${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-gethosts.desktop "${pkgdir}/usr/share/applications/kavach-hosts-sweep-gethosts.desktop"
-
-    chmod +x /etc/skel/.config/autostart/addentries.sh
-    chmod +x /etc/skel/.config/autostart/gethosts.sh
+    cp -r "${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-addentries.desktop" "${pkgdir}/usr/share/applications/kavach-hosts-sweep-addentries.desktop"
+    cp -r "${srcdir}/kavach-hosts-sweep/src/kavach-hosts-sweep-gethosts.desktop" "${pkgdir}/usr/share/applications/kavach-hosts-sweep-gethosts.desktop"
 }
