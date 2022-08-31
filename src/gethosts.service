@@ -1,0 +1,6 @@
+[Unit]
+Description=Updates the hosts file and scans every 2 hrs for new release.
+[Service]
+ExecStart=/usr/bin/gethosts.sh
+[Install]
+WantedBy=multi-user.target
