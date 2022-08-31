@@ -12,7 +12,7 @@ while true; do
   sudo mv /etc/hosts /etc/hosts.old
   sudo cp /tmp/hosts /etc/hosts | grep "HasErrors.:true"
   echo "Script ran sucessfully at " date "!" >>"customhostslogfile.$(date +'%Y-%m-%d').log"
-  if [[ "$?" -ne 0 ]]; then
+  if [[ "$?" == 0 ]]; then
     break
   fi
   sleep 120
