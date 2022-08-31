@@ -8,6 +8,7 @@
 # chmod +x /etc/init.d/gethosts.sh; ln -s /etc/init.d/gethosts.sh /etc/rc.d/;
 
 while true; do
+  sleep 10
   curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts -o /tmp/hosts | grep "HasErrors.:true"
   sudo mv /etc/hosts /etc/hosts.old
   sudo cp /tmp/hosts /etc/hosts | grep "HasErrors.:true"
