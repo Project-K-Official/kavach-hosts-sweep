@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # MIT License
-# @Agni Datta 2022
+# @Agni Datta 2022, @Nadir 2022
 # This script downlaods the latest Steven Black hosts file from Github Mirror.
 # There is a backup and move component which moves the downlaoded hosts file to /etc/hosts
 # Script shall be stored in /etc/init.d/gethosts.sh
