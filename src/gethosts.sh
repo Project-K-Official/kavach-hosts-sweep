@@ -8,13 +8,19 @@
 # chmod +x /etc/init.d/gethosts.sh; ln -s /etc/init.d/gethosts.sh /etc/rc.d/;
 
 while true; do
-  sleep 10
-  curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts -o /tmp/hosts | grep "HasErrors.:true"
-  sudo mv /etc/hosts /etc/hosts.old
-  sudo cp /tmp/hosts /etc/hosts | grep "HasErrors.:true"
-  echo "Script ran sucessfully at " date "!" >>"customhostslogfile.$(date +'%Y-%m-%d').log"
-  if [[ "$?" == 0 ]]; then
-    break
+  ping -c 3 google.com
+  if [[ "$?" -eq 0 ]]; then
+      echo "PING COMPLETED."
+      curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts -o /tmp/hosts | grep "HasErrors.:true"
+      sudo mv /etc/hosts /etc/hosts.old
+      sudo cp /tmp/hosts /etc/hosts | grep "HasErrors.:true"
+      echo "Script ran sucessfully at " date "!" >> "customhostslogfile.$(date +'%Y-%m-%d').log"
+      if [[ "$?" -eq 0 ]]; then
+	  echo "SCRIPT RAN"
+          sleep 7200	
+      fi
+  else
+      echo "NO INTERNET"
+      sleep 120
   fi
-  sleep 120
 done
